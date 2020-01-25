@@ -25,7 +25,7 @@ class PGAgent:
         model = Sequential()
         #model.add(Reshape((1, 80, 80), input_shape=(self.state_size,)))
         model.add(Reshape((1, Pong.WIDTH//2, Pong.HEIGHT//2), input_shape=(self.state_size,)))
-        model.add(Convolution2D(32, 6, 6, subsample=(3, 3), border_mode='same',
+        model.add(Convolution2D(32, 3, 3, border_mode='same',
                                 activation='relu', init='he_uniform'))
         model.add(Flatten())
         model.add(Dense(64, activation='relu', init='he_uniform'))
@@ -140,10 +140,11 @@ if __name__ == "__main__":
             agent1.memorize(x, action1, prob1, reward_1)
             agent2.memorize(x, action2, prob2, reward_2)
         else:
-            state, reward, done = env.step(actions[last_action_2], actions[action1])
-            reward = float(reward[1])
-        score_1 += reward_1
-        score_2 += reward_2
+            state, reward, done = env.step(actions[last_action_2], actions[last_action_1])
+            reward_1 = float(reward[1])
+            reward_2 = float(reward[0])
+        if reward_1 > 0: score_1 += reward_1
+        if reward_2 > 0: score_2 += reward_2
 
         i += 1
         if done:
@@ -152,7 +153,8 @@ if __name__ == "__main__":
             agent1.train()
             agent2.train()
             print('Episode: %d - Score: %f - %f.' % (episode, score_1, score_2))
-            score = 0
+            score_1 = 0
+            score_2 = 0
             state = env.reset()
             prev_x = None
             if episode > 1 and episode % 50 == 0:
