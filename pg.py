@@ -125,11 +125,11 @@ if __name__ == "__main__":
     last_action_2 = None
     i = 0
     while True:
-        #env.show(4)
+        env.show(4)
 
         x = preprocess_pong(state)
         #x = cur_x - prev_x if prev_x is not None else np.zeros(state_size)
-        if last_action_1 is None or last_action_2 is None or i % 3 == 0:
+        if last_action_1 is None or last_action_2 is None or i % 1 == 0:
             action1, prob1 = agent1.act(x)
             action2, prob2 = agent2.act(x)
             last_action_1 = action1
