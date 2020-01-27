@@ -125,7 +125,7 @@ if __name__ == "__main__":
     last_action_2 = None
     i = 0
     while True:
-        env.show(4)
+        #env.show(4)
 
         x = preprocess_pong(state)
         #x = cur_x - prev_x if prev_x is not None else np.zeros(state_size)
