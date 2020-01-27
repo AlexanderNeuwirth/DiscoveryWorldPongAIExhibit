@@ -24,7 +24,7 @@ class PGAgent:
     def _build_model(self):
         model = Sequential()
         #model.add(Reshape((1, 80, 80), input_shape=(self.state_size,)))
-        model.add(Dense(200, activation='relu', init='he_uniform', input_shape=(self.state_size,)))
+        model.add(Dense(500, activation='relu', init='he_uniform', input_shape=(self.state_size,)))
         model.add(Dense(self.action_size, activation='softmax'))
         opt = Adam(lr=self.learning_rate)
         model.compile(loss='categorical_crossentropy', optimizer=opt)
