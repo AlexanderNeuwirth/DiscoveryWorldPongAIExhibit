@@ -155,7 +155,7 @@ if __name__ == "__main__":
             prev_x = None
 
             if episode % 2 == 0:
-                save_video(render_states, f'./analytics/clip{episode}.mp4')
+                #save_video(render_states, f'./analytics/clip{episode}.mp4')
                 agent1.save(f'./models/1/{episode}.h5')
                 agent2.save(f'./models/2/{episode}.h5')
             render_states = []
