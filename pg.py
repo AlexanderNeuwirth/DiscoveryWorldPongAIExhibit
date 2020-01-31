@@ -6,7 +6,7 @@ from keras.optimizers import Adam
 import os
 import cv2
 from keras.layers.convolutional import Convolution2D
-from utils import save_video, write
+from utils import write
 
 class PGAgent:
     def __init__(self, state_size, action_size, name="PGAgent"):
@@ -154,7 +154,7 @@ if __name__ == "__main__":
             state = env.reset()
             prev_x = None
 
-            if episode % 2 == 0:
+            if episode % 250 == 0:
                 #save_video(render_states, f'./analytics/clip{episode}.mp4')
                 agent1.save(f'./models/1/{episode}.h5')
                 agent2.save(f'./models/2/{episode}.h5')
