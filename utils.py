@@ -3,7 +3,7 @@ import numpy as np
 import os
 import imageio
 import cv2
-from moviepy.editor import *
+import moviepy.editor
 
 class Timer:
     timers = {}
@@ -65,10 +65,10 @@ def get_last_file():
 
 
 def save_video(states, path):
-    clips = [ImageClip(m).set_duration(0.1)
+    clips = [moviepy.editor.ImageClip(m).set_duration(0.1)
              for m in states]
 
-    concat_clip = concatenate_videoclips(clips, method="compose")
+    concat_clip = moviepy.editor.concatenate_videoclips(clips, method="compose")
     concat_clip.write_videofile(path, fps=60)
 
 def write(value, file):
