@@ -22,7 +22,7 @@ SET ID=%BRANCH%_%DATETIME%
 
 :: Copy and fill in template script
 copy scripts\setup_template.sh scripts\temp.sh
-powershell -Command "(gc scripts\temp.sh) -replace '{{BRANCH}}', '%BRANCH%' | Out-File -encoding ASCII scripts\temp.sh"
+powershell -Command "(gc scripts\temp.sh) -replace '{{BRANCH}}', '%TARGET%' | Out-File -encoding ASCII scripts\temp.sh"
 powershell -Command "(gc scripts\temp.sh) -replace '{{REMOTE}}', '%REMOTE%' | Out-File -encoding ASCII scripts\temp.sh"
 powershell -Command "(gc scripts\temp.sh) -replace '{{ID}}', '%ID%' | Out-File -encoding ASCII scripts\temp.sh"
 
