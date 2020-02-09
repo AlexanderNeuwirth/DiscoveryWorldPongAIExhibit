@@ -18,7 +18,7 @@ git push --set-upstream origin %TARGET%
 
 :: Grab datetime and create ID to easily identify run folder
 SET DATETIME=%date:~10,4%%date:~4,2%%date:~7,2%_%time:~1,2%%time:~3,2%%time:~6,2%
-SET ID=%BRANCH%_%DATETIME%
+SET ID=%TARGET%_%DATETIME%
 
 :: Copy and fill in template script
 copy scripts\setup_template.sh scripts\temp.sh
