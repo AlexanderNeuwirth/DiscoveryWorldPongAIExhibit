@@ -31,7 +31,7 @@
 #SBATCH --cpus-per-gpu=8
 # Naming
 #SBATCH --output=pong_job.out
-#SBATCH --job-name=PongAI_{{BRANCH}}
+#SBATCH --job-name=PongAI_dense_250
 
 # Activate the anaconda environment. Must use this form in scripts.
 #. /usr/local/anaconda3/bin/activate
