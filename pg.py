@@ -133,7 +133,7 @@ if __name__ == "__main__":
         action2, prob2 = agent2.act(x)
         last_action_1 = action1
         last_action_2 = action2
-        state, reward, done = env.step(actions[action2], actions[action1], frames=15)
+        state, reward, done = env.step(actions[action2], actions[action1], frames=10)
         reward_1 = float(reward[1])
         reward_2 = float(reward[0])
         agent1.memorize(x, action1, prob1, reward_1)
