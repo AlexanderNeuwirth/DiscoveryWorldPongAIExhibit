@@ -17,7 +17,7 @@ git commit -m "%TARGET% autojob"
 git push --set-upstream origin %TARGET%
 
 :: Grab datetime and create ID to easily identify run folder
-SET DATETIME=%date:~10,4%%date:~4,2%%date:~7,2%_%time:~1,2%%time:~3,2%%time:~6,2%
+SET DATETIME %DATE:~-4%%DATE:~4,2%%DATE:~7,2%%TIME%
 SET ID=%TARGET%_%DATETIME%
 
 :: Copy and fill in template script
