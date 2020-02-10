@@ -24,7 +24,7 @@ if __name__ == "__main__":
     neuron_states = []
     while True:
         episode += 1
-        states, left, right, meta = simulator.simulate_game(simulator.CUSTOM, left=agent_l, right=agent_r, batch=10)
+        states, left, right, meta = simulator.simulate_game(simulator.CUSTOM, left=agent_l, right=agent_r, batch=1)
         render_states, model_states, (score_l, score_r) = meta
         actions, probs, rewards = right
         #agent_l.train(states, *left)
