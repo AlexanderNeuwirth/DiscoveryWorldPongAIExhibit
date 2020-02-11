@@ -52,7 +52,7 @@ if __name__ == "__main__":
     # Train loop
     while True:
         episode += 1
-        states, left, right, meta = simulator.simulate_game(MODE, left=agent_l, right=agent_r, batch=1)
+        states, left, right, meta = simulator.simulate_game(MODE, left=agent_l, right=agent_r, batch=10)
         render_states, model_states, (score_l, score_r) = meta
         actions, probs, rewards = right
 
