@@ -5,7 +5,7 @@ from player import PGAgent, BotPlayer
 from visualizer import get_weight_image
 
 GAME_BATCH = 10
-MODE = simulator.ATARI
+MODE = simulator.CUSTOM
 
 if __name__ == "__main__":
     # Ensure directory safety
