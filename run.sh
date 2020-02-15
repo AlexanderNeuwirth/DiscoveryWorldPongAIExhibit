@@ -31,7 +31,7 @@
 #SBATCH --cpus-per-gpu=8
 # Naming
 #SBATCH --output=pong_job.out
-#SBATCH --job-name=PongAI_sanity_check_atari
+#SBATCH --job-name=atari_learnslow_1
 
 # Activate the anaconda environment. Must use this form in scripts.
 #. /usr/local/anaconda3/bin/activate
