@@ -167,7 +167,7 @@ class Pong:
         self.score_right = 0
         self.left = Pong.Paddle("left") if not self.hit_practice else None
         self.right = Pong.Paddle("right")
-        self.ball = Pong.Ball(hit_practice=True)
+        self.ball = Pong.Ball(hit_practice=hit_practice)
 
     def reset(self):
         self.score_left = 0
