@@ -4,8 +4,8 @@ from utils import save_video, plot_loss, plot_score, write
 from player import PGAgent, BotPlayer
 from visualizer import get_weight_image
 
-GAME_BATCH = 1
-MODE = simulator.HIT_PRACTICE
+GAME_BATCH = 10
+MODE = simulator.ATARI
 
 if __name__ == "__main__":
     # Ensure directory safety
@@ -69,3 +69,5 @@ if __name__ == "__main__":
             if r_is_model: agent_r.save(f'./models/r/{episode}.h5')
         if episode == 10000:
             exit(0)
+        if episode == 4000:
+            agent_r.model.optimizer.lr = 0.0001
