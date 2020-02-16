@@ -4,7 +4,7 @@ from utils import save_video, plot_loss, plot_score, write
 from player import PGAgent, BotPlayer
 from visualizer import get_weight_image
 
-GAME_BATCH = 1
+GAME_BATCH = 10
 MODE = simulator.HIT_PRACTICE
 
 if __name__ == "__main__":
