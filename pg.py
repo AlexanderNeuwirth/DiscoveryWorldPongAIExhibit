@@ -67,5 +67,5 @@ if __name__ == "__main__":
             plot_score(f'./analytics/plots/score_{episode}.png')
             if l_is_model: agent_l.save(f'./models/l/{episode}.h5')
             if r_is_model: agent_r.save(f'./models/r/{episode}.h5')
-        if episode == 10000:
+        if episode == 100000:
             exit(0)
