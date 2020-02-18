@@ -29,7 +29,7 @@
 #SBATCH --cpus-per-gpu=8
 # Naming
 #SBATCH --output=pong_job.out
-#SBATCH --job-name=custom_h1_300_af
+#SBATCH --job-name=atari_h1_300
 
 # Activate the anaconda environment. Must use this form in scripts.
 #. /usr/local/anaconda3/bin/activate
