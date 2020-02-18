@@ -5,7 +5,7 @@ from player import PGAgent, BotPlayer
 from visualizer import get_weight_image
 
 GAME_BATCH = 10
-MODE = simulator.CUSTOM
+MODE = simulator.PONG
 LEARNING_RATE = 0.001
 
 if __name__ == "__main__":
