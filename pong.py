@@ -79,7 +79,7 @@ class Pong:
                 pass
 
     class Ball:  # 0, 30, -45, 225
-        DIAMETER = 2
+        DIAMETER = 6
         SPEED = 1
         BOUNCE_ANGLES = [0, 60, 45, 30, -30, -45, -60]
 
