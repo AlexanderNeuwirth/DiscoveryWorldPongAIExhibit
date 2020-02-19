@@ -5,9 +5,9 @@ from player import PGAgent, BotPlayer
 from visualizer import get_weight_image
 
 GAME_BATCH = 10
-MODE = simulator.CUSTOM
+MODE = simulator.ATARI
 LEARNING_RATE = 0.001
-DENSE_STRUCTURE = (200,)
+DENSE_STRUCTURE = (200,100,50)
 ALWAYS_FOLLOW = True
 
 if __name__ == "__main__":
