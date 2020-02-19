@@ -6,7 +6,7 @@ from visualizer import get_weight_image
 
 GAME_BATCH = 10
 MODE = simulator.CUSTOM
-LEARNING_RATE = 0.001
+LEARNING_RATE = 0.01
 DENSE_STRUCTURE = (200,)
 ALWAYS_FOLLOW = True
 
