@@ -9,7 +9,7 @@ MODE = simulator.CUSTOM
 LEARNING_RATE = 0.001
 DENSE_STRUCTURE = (200,)
 ALWAYS_FOLLOW = False
-BALL_MARKER_H = True
+BALL_MARKER_H = False
 BALL_MARKER_V = True
 
 if __name__ == "__main__":

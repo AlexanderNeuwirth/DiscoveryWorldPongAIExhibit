@@ -69,7 +69,7 @@ class RealtimeVisualizer:
         self.hidden_weights = weights[0]
 
         self.significant_hw = is_significant(self.hidden_weights, 0.2)
-        self.significant_ow = is_significant(self.output_weights, 1)
+        self.significant_ow = is_significant(self.output_weights, 0.2)
 
         # Determine appropriate base size for a neuron based on minimum allowable padding for a specific layer
         self.neuron_size = (self.canvas_height - (len(self.hidden_biases) * self.MIN_PADDING)) / len(self.hidden_biases)
