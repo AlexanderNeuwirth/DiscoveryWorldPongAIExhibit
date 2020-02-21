@@ -29,7 +29,7 @@
 #SBATCH --cpus-per-gpu=8
 # Naming
 #SBATCH --output=pong_job.out
-#SBATCH --job-name=C:\\dev\\DiscoveryWorld\\scripts\\spawn_job.bat
+#SBATCH --job-name=200_200_200_v
 
 # Activate the anaconda environment. Must use this form in scripts.
 #. /usr/local/anaconda3/bin/activate
