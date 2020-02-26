@@ -80,7 +80,7 @@ class PGAgent:
         if len(self.structure) > 1:
             for layer in self.structure[1:]:
                 model.add(Dense(layer, activation='relu', init='he_uniform'))
-        model.add(Dense(self.action_size, activation='softmaxsoftmax'))
+        model.add(Dense(self.action_size, activation='softmax'))
         opt = Adam(lr=self.learning_rate)
         model.compile(loss='categorical_crossentropy', optimizer=opt)
         return model
