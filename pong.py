@@ -247,7 +247,6 @@ class Pong:
         done = False
         for i in range(frames):
             if not done:
-                self.show(4)
                 self.left.handle_action(left_action)
                 self.right.handle_action(right_action)
 
