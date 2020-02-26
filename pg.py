@@ -18,7 +18,7 @@ if __name__ == "__main__":
     os.makedirs("analytics/plots", exist_ok=True)
 
     # Initialize for checks & scope
-    start_index = 2000
+    start_index = None
     agent_l = None
     state_size = None
     state_shape = None
