@@ -8,7 +8,6 @@ from keras.layers import Dense, Reshape, Flatten
 from keras.optimizers import Adam
 from utils import save_video, write, plot_loss
 
-
 class HumanPlayer:
     def __init__(self, up, down):
         self.up = up
@@ -81,7 +80,7 @@ class PGAgent:
         if len(self.structure) > 1:
             for layer in self.structure[1:]:
                 model.add(Dense(layer, activation='relu', init='he_uniform'))
-        model.add(Dense(self.action_size, activation='softmax'))
+        model.add(Dense(self.action_size, activation='softmaxsoftmax'))
         opt = Adam(lr=self.learning_rate)
         model.compile(loss='categorical_crossentropy', optimizer=opt)
         return model
