@@ -65,7 +65,7 @@ class PGAgent:
         self.name = name
         self.state_size = state_size
         self.action_size = action_size
-        self.gamma = 0.99
+        self.gamma = 0.8
         self.learning_rate = learning_rate
         self.states = []
         self.gradients = []
@@ -111,13 +111,15 @@ class PGAgent:
             y[action] = 1
             gradients.append(np.array(y).astype('float32') - prob)
 
+
         gradients = np.vstack(gradients)
-        rewards = np.vstack(rewards)
+        rewards = np.vstack(rewards).astype(np.float32)
         rewards = self.discount_rewards(rewards)
         gradients *= rewards
 
         X = np.squeeze(np.vstack([states]))
-        Y = probs + self.learning_rate * np.squeeze(np.vstack([gradients]))
+        Y = (probs + self.learning_rate * np.squeeze(np.vstack([gradients])))
+        #print(Y)
         result = self.model.train_on_batch(X, Y)
         write(str(result), f'analytics/{self.name}.csv')
 
