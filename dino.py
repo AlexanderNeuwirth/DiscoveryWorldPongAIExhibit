@@ -23,7 +23,7 @@ class DinoEnv:
     @staticmethod
     def preprocess_screen(screen):
         gray = cv2.cvtColor(screen, cv2.COLOR_RGBA2GRAY)
-        downsample = cv2.resize(gray, (gray.shape[1] // 2, gray.shape[0] // 2))
+        downsample = cv2.resize(gray, (gray.shape[1] // 4, gray.shape[0] // 4))
         rescale = downsample.astype(np.float32) / 255.0
         return rescale
 

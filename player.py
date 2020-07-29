@@ -4,7 +4,7 @@ from random import random, choice
 import numpy as np
 from pong import Pong
 from keras.models import Sequential
-from keras.layers import Dense, Reshape, Flatten
+from keras.layers import Dense, Reshape, Flatten, Conv2D, MaxPooling2D
 from keras.optimizers import Adam
 from utils import save_video, write, plot_loss
 
@@ -77,17 +77,25 @@ class PGAgent:
 
     def _build_model(self):
         model = Sequential()
-        model.add(Dense(self.structure[0], activation='relu', init='he_uniform', input_shape=(self.state_size,)))
-        if len(self.structure) > 1:
-            for layer in self.structure[1:]:
-                model.add(Dense(layer, activation='relu', init='he_uniform'))
+        if(self.structure == 'conv'):
+            print(f'input_shape: {self.state_size}')
+            model.add(Conv2D(32, (5, 5), activation='relu', input_shape=self.state_size))
+            model.add(Conv2D(64, (3, 3), activation='relu'))
+            model.add(Conv2D(64, (3, 3), activation='relu'))
+            model.add(Flatten())
+            model.add(Dense(256, activation='relu'))
+        else:
+            model.add(Dense(self.structure[0], activation='relu', init='he_uniform', input_shape=(self.state_size,)))
+            if len(self.structure) > 1:
+                for layer in self.structure[1:]:
+                    model.add(Dense(layer, activation='relu', init='he_uniform'))
         model.add(Dense(self.action_size, activation='softmax'))
         opt = Adam(lr=self.learning_rate)
         model.compile(loss='categorical_crossentropy', optimizer=opt)
         return model
 
     def act(self, state):
-        state = state.reshape([1, state.shape[0]])
+        state = np.reshape(state, (1, state.shape[0], state.shape[1], 1))
         prob = self.model.predict(state, batch_size=1).flatten()
         action = np.random.choice(self.action_size, 1, p=prob)[0]
         return action, prob
@@ -117,7 +125,7 @@ class PGAgent:
         rewards = self.discount_rewards(rewards)
         gradients *= rewards
 
-        X = np.squeeze(np.vstack([states]))
+        X = np.squeeze(np.vstack([states])).reshape((len(states), states[0].shape[0], states[0].shape[1], 1))
         Y = (probs + self.learning_rate * np.squeeze(np.vstack([gradients])))
         #print(Y)
         result = self.model.train_on_batch(X, Y)
