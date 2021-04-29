@@ -18,7 +18,7 @@ class AIDriver:
         action, probs = self.agent.act(x)
 
         # Publish prediction
-        self.state.publish("paddle2/action", {"action": action})
+        self.state.publish("paddle2/action", {"action": str(action)})
         self.state.publish("paddle2/frame", {"frame": current_frame_id})
         print(current_frame_id)
 

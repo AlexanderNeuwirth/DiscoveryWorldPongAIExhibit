@@ -25,9 +25,9 @@ class GameSubscriber:
         topic = msg.topic
         payload = json.loads(msg.payload)
         if topic == "paddle1/action":
-            self.paddle1_action = payload["action"]
+            self.paddle1_action = int(payload["action"])
         if topic == "paddle2/action":
-            self.paddle2_action = payload["action"]
+            self.paddle2_action = int(payload["action"])
         if topic == "paddle2/frame":
             self.paddle2_frame = payload["frame"]
 
@@ -37,8 +37,8 @@ class GameSubscriber:
         self.client.on_connect = lambda client, userdata, flags, rc : self.on_connect(client, userdata, flags, rc)
         self.client.on_message = lambda client, userdata, msg : self.on_message(client, userdata, msg)
         self.client.loop_start()
-        self.paddle1_action = "NONE"
+        self.paddle1_action = 2 # "NONE"
         self.paddle1_prob = np.array([0, 1])
-        self.paddle2_action = "NONE"
+        self.paddle2_action = 2 # "NONE"
         self.paddle2_prob = np.array([0, 1])
         self.paddle2_frame = None
