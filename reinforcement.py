@@ -19,7 +19,7 @@ convenient monitoring and graphing of the training process.
 """
 
 GAME_BATCH = 10
-MODE = Config.HIT_PRACTICE
+MODE = Config.CUSTOM
 LEARNING_RATE = 0.001
 DENSE_STRUCTURE = (200,)
 ALWAYS_FOLLOW = False
