@@ -18,7 +18,7 @@ process into a few environmental and training hyperparameters that are easy to e
 convenient monitoring and graphing of the training process.
 """
 
-GAME_BATCH = 1
+GAME_BATCH = 10
 MODE = Config.HIT_PRACTICE
 LEARNING_RATE = 0.001
 DENSE_STRUCTURE = (200,)

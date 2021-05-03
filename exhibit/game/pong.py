@@ -157,7 +157,7 @@ class Pong:
             self.x = 5
             self.y = randint(0, Pong.HEIGHT)
             self.speed = self.SPEED * Pong.SPEEDUP
-            self.velocity = self.get_vector(choice(Pong.Ball.BOUNCE_ANGLES), Pong.Ball.SPEED + (Pong.VOLLEY_SPEEDUP * choice(list(range(12)))))
+            self.velocity = self.get_vector(choice(Pong.Ball.BOUNCE_ANGLES), Pong.Ball.SPEED + (Pong.VOLLEY_SPEEDUP * choice(list(range(6)))))
             self.w = self.DIAMETER
             self.right = True
             self.h = self.DIAMETER
