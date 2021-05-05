@@ -14,7 +14,7 @@ class Config:
     HIT_PRACTICE = 2
     ATARI_ACTIONS = [2, 3]  # Control indices for "UP", "DOWN"
     ATARI_ACTION_SIZE = 2
-    CUSTOM_ACTION_SIZE = 2
+    CUSTOM_ACTION_SIZE = 3
     CUSTOM_STATE_SHAPE = HEIGHT // 2, WIDTH // 2
     ATARI_STATE_SHAPE = 80, 80
     CUSTOM_STATE_SIZE = HEIGHT // 2 * WIDTH // 2
