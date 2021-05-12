@@ -55,6 +55,10 @@ def simulate_game(env_type=Config.CUSTOM, left=None, right=None, batch=1, visual
         diff_state = current_state - last_state
         model_states.append(diff_state.astype(np.uint8))
         diff_state_rev = np.flip(diff_state, axis=1)
+        import cv2
+        cv2.imshow("test", diff_state_rev)
+        cv2.imwrite("testinferstate.png", diff_state_rev)
+        cv2.waitKey(0)
         last_state = current_state
         action_l, prob_l, action_r, prob_r = None, None, None, None
         x = diff_state.ravel()

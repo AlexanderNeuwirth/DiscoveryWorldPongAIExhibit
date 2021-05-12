@@ -501,7 +501,7 @@ class Pong:
             self.last_frame_time = time.time()
 
         self.last_screen = screen
-        self.show(self.render(), 3)
+        #self.show(self.render(), 3)
 
         self.frames += 1
         return screen, (reward_l, reward_r), done
@@ -516,6 +516,7 @@ class Pong:
         l, r = self.get_score()
         to_render = cv2.resize(screen, (int(Pong.WIDTH * scale), int(Pong.HEIGHT * scale)))
         cv2.imshow(f"Pong", cv2.cvtColor(to_render, cv2.COLOR_RGB2BGR))
+        cv2.imwrite("teststate.png", cv2.cvtColor(to_render, cv2.COLOR_RGB2BGR))
         cv2.waitKey(duration)
 
     def get_packet_info(self):
