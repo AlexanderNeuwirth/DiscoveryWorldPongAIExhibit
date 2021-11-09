@@ -29,12 +29,12 @@
 #SBATCH --cpus-per-gpu=8
 # Naming
 #SBATCH --output=pong_job.out
-#SBATCH --job-name=test_symmetric
+#SBATCH --job-name=symmetric2layer
 
 # Activate the anaconda environment. Must use this form in scripts.
 #. /usr/local/anaconda3/bin/activate
 # Your job
-singularity exec --nv /data/containers/msoe-tensorflow-20.07-tf2-py3.sif python3 -m pip install --user -r requirements.txt
-singularity exec --nv /data/containers/msoe-tensorflow-20.07-tf2-py3.sif python3 reinforcement.py
+python3 -m pip3 install --user -r requirements.txt
+python3 reinforcement.py
 # Deactivate the anaconda environment
 # conda deactivate
